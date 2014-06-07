@@ -1,0 +1,28 @@
+<div content-for="title">
+</div>
+<div content-for="navbar-top-left">
+	<a ng-click="navigate('/wines')" class="btn btn-navbar">Back</a>
+</div>
+<div class="scrollable">
+	<div class="scrollable-content">
+		<div class="list-group">
+			<div class="list-group-item">
+                                <div style="text-align: center;" ng-if="error">
+                                        Error in input.
+                                </div>
+				<form ng-submit="updateWine()">
+					<p style="text-align: center;">
+						<input type="text" ng-model="wineName">
+						<input  type="submit" value="update">
+					</p>
+				</form>
+				<p>Winery: {{winery.name}}</p>
+			</div>
+			<div class="list-group-item">
+				<p style="text-align: center;">
+					<button ng-click="deleteWine()">Delete</button>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

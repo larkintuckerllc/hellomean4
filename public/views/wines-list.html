@@ -1,0 +1,31 @@
+<div content-for="title">
+</div>
+<div content-for="navbar-top-left">
+        <a ng-click="navigate('/')" class="btn btn-navbar">Back</a>
+</div>
+<div class="scrollable">
+	<div class="scrollable-content">
+		<div class="list-group">
+			<a ng-repeat="wine in wines" ng-click="navigate('/wines/' + wine._id)" class="list-group-item">{{wine.name}} <i class="fa fa-chevron-right pull-right"></i></a>
+			<div class="list-group-item">
+				<div style="text-align: center;" ng-if="error">
+					Error in input.
+				</div>
+				<form ng-submit="addWine()">
+					<p style="text-align: center;">
+						<input type="text" ng-model="wineName"  placeholder="add new wine here">
+					</p>
+					<p style="text-align: center;">
+						<select ng-model="winery_Id">
+							<option value="" disabled selected>select winery here</option>
+  							<option ng-repeat="winery in wineries" value="{{winery._id}}">{{winery.name}}</option>
+						</select> 
+					</p>
+					<p style="text-align: center;">
+        					<input  type="submit" value="add">
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
